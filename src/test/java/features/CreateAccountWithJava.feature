@@ -1,12 +1,14 @@
+@Regression
 Feature: Create Account with Random Email using java
 
   Background: Setup test
-    Given url "https://qa.insurance-api.tekschool-students.com"
+    Given url BASE_URL
 
   Scenario: Create Valid account /api/accounts/add-primary-account
     Given path "/api/accounts/add-primary-account"
     * def dataGenerator = Java.type('data.DataGenerator')
     * def autoEmail = dataGenerator.getEmail();
+    * def firstName = dataGenerator.getFirstName();
     And request
     """
     {
